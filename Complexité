@@ -1,0 +1,38 @@
+
+package complexité;
+
+import java.util.*;
+/**
+ *
+ * @author KANE
+ */
+public class Complexité {
+
+   
+   public static void main(String[] args) {
+      //On crée le plateau
+        Grille g1 =new Grille (15,10);
+      
+      
+      //on place le notre chemin
+      
+      g1.placer(3, 3, 'j');
+      
+      g1.placer(7, 4, 'O');  g1.placer(6, 2, 'O');  g1.placer(2, 8, 'O');
+      
+      g1.placer(1, 1, 'N'); g1.placer(10, 7, 'N'); g1.placer(1, 1, 'N');
+      
+      //affichage
+      System.out.println("J = Joueur\n O= Objet\n N= Monstre\n .=vide ");
+      g1.afficher();
+      g1.deplacerH();
+      g1.afficher();
+      
+      
+     
+      
+      //System.out.println("veuillez entrer un nombre : ");
+      
+    }
+    
+}
