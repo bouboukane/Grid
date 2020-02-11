@@ -1,0 +1,92 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package complexité;
+
+/**
+ *
+ * @author KANE
+ */
+public class Grille {
+    //Attributs
+    private int nbligne;
+    private int nbcolone;
+    private char [] [] grille;
+    
+    //Constructeur
+public Grille(int n, int p){
+    nbligne=n;
+    nbcolone=p;
+    grille = new char [nbligne][nbcolone];
+    
+    for(int i=0; i<nbligne; i++){
+            for(int j=0; j<nbcolone; j++){
+                
+                grille[i][j] = '-';
+                
+           }
+    
+        }
+    }
+
+//Accessur
+public char getCase(int l, int c){
+    return grille[l-1][c-1];
+}
+
+
+
+
+//Méthodes
+public void afficher(){
+    System.out.println();
+     for(int i=0; i<nbligne; i++){
+            for(int j=0; j<nbcolone; j++){
+                
+               System.out.print(" | " + grille [i] [j]);
+             
+           }
+            System.out.println(" | ");
+        }
+     System.out.println();
+    
+}
+
+public void placer (int l, int c, char t){
+    l=l-1;
+    c=c-1;
+    //On teste si on se trouve sur le plateau 
+    if (l<0 || c<0 || l>nbligne || c >nbcolone ){
+       System.out.println("ERREUR !!!");
+       return;
+    }
+    if(grille[l][c]=='-'){
+        grille[l][c]= t;
+    }
+    else{
+        System.out.println("ERREUR, cette zone n'est pas vide!!!");
+    }
+}
+ //Déplacer
+
+public void deplacerH(){
+    
+    char tmp;
+    for(int i=0; i<nbligne; i++){
+            for(int j=0; j<nbcolone; j++){
+                if(grille[i][j]=='j'){ //on cherche le joueur 
+                    if(i-1 >=0){ //  On teste la position 
+                        
+                        tmp= grille[i][j]; // on copie le perso 
+                        grille[i][j]='.'; // on vide la case
+                        grille[i-1][j]=tmp; //On deplace le perso
+                    }
+                }
+                
+             
+             
+           }
+}
+}}
